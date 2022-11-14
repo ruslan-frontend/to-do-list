@@ -1,18 +1,36 @@
+import { useState } from 'react';
 import './newListInput.scss';
 
-function NewListInput(newList, setNewList) {
+function NewListInput( { allLists, setAllLists } ) {
 
+    const [isButtonActive, setIsButtonActive] = useState(false);
+    const [newList, setNewList] = useState('');
 
     return (
-        <form className="newList">
+        <form onSubmit={(e) => {
+            e.preventDefault();
+            setAllLists([{title: newList, items: []}, ...allLists])
+        }} 
+        className="newList">
 
             <input 
             type="text" 
             className='newList__input'
             placeholder='New List' 
-            onChange={() => {}} />
+            onChange={(e) => {
+                setNewList(e.target.value)
 
-            <button type='submit' className='newList__button'>+ Add</button>
+                if (e.target.value !== '' && !isButtonActive) {
+                    setIsButtonActive(true)
+                } else if (e.target.value === '' && isButtonActive) {
+                    setIsButtonActive(false)
+                }
+            }}
+            value={newList}
+
+            />
+
+            <button type='submit' className={`newList__button ${isButtonActive ? 'newList__button_active' : ''}`}>+ Add</button>
         </form>
     );
 }
