@@ -10,7 +10,7 @@ function Main() {
 
     return (
         <main className="main">
-            <h1 className="main__title">My Lists</h1>
+            <h1 className="main__title"> My Lists </h1>
             <NewListInput 
             setAllLists={setAllLists}
             allLists={allLists}
@@ -20,6 +20,8 @@ function Main() {
                 <List
                 title={title}
                 items={items}
+                allLists={allLists}
+                setAllLists={setAllLists}
             />)}
 
         </main>

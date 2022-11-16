@@ -10,6 +10,9 @@ function NewListInput( { allLists, setAllLists } ) {
         <form onSubmit={(e) => {
             e.preventDefault();
             setAllLists([{title: newList, items: []}, ...allLists])
+
+            // localStorage.setItem('allListsObj', JSON.stringify(allLists))
+            // localStorage.setItem('listsTitle', JSON.stringify(newList))
         }} 
         className="newList">
 
@@ -27,7 +30,6 @@ function NewListInput( { allLists, setAllLists } ) {
                 }
             }}
             value={newList}
-
             />
 
             <button type='submit' className={`newList__button ${isButtonActive ? 'newList__button_active' : ''}`}>+ Add</button>
