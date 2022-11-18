@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './newListInput.scss';
+import { v4 as uuidv4 } from 'uuid';
 
 function NewListInput( { allLists, setAllLists } ) {
 
@@ -9,7 +10,7 @@ function NewListInput( { allLists, setAllLists } ) {
     return (
         <form onSubmit={(e) => {
             e.preventDefault();
-            setAllLists([{title: newList, items: []}, ...allLists])
+            setAllLists([{id: uuidv4(), title: newList, items: [], active: false}, ...allLists])
 
             // localStorage.setItem('allListsObj', JSON.stringify(allLists))
             // localStorage.setItem('listsTitle', JSON.stringify(newList))

@@ -16,12 +16,14 @@ function Main() {
             allLists={allLists}
             />
             {allLists.map(
-                ({ title, items }) => 
+                ({ title, items, active, id }) => 
                 <List
                 title={title}
                 items={items}
                 allLists={allLists}
                 setAllLists={setAllLists}
+                active={active}
+                id={id}
             />)}
 
         </main>

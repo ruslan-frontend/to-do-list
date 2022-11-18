@@ -4,6 +4,9 @@
     height: 100vh;
     background: #FEF6F4;
     padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
 
     &__title {
         font-size: 28px;
