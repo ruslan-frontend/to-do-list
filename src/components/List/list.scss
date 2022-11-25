@@ -31,15 +31,18 @@
 
     &__itemAdding {
         width: 100%;
-        height: 52px;
+        // height: 52px;
         border-radius: 8px;
         background: #FFFFFF;
-        padding: 16px;
+        padding: 16px 16px 0 16px;
 
         &-button {
             font-size: 16px;
             line-height: 20px;
             color: rgba(0, 0, 0, 0.4);
+            display: inline-block;
+            margin-bottom: 16px;
+            cursor: pointer;
         }
     }
 
@@ -48,10 +51,11 @@
         width: 100%;
 
         &-input {
-            width: 100%;
+            width: calc(100% + 32px);
+            margin-left: -16px;
             height: 52px;
             border-radius: 8px;
-            border: none;
+            // border: none;
             outline: none;
             padding: 16px;
 
@@ -64,7 +68,7 @@
             background: none;
             border: none;
             position: absolute;
-            right: 16px;
+            right: 0;
             top: 18px;
         }
     }
@@ -78,3 +82,4 @@
         cursor: pointer;
     }
 }
+

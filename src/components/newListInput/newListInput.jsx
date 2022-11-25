@@ -10,10 +10,8 @@ function NewListInput( { allLists, setAllLists } ) {
     return (
         <form onSubmit={(e) => {
             e.preventDefault();
-            setAllLists([{id: uuidv4(), title: newList, items: [], active: false}, ...allLists])
+            setAllLists([{id: uuidv4(), title: newList, items: [], active: false, inputShown: false}, ...allLists])
 
-            // localStorage.setItem('allListsObj', JSON.stringify(allLists))
-            // localStorage.setItem('listsTitle', JSON.stringify(newList))
         }} 
         className="newList">
 

@@ -10,19 +10,20 @@ function Main() {
 
     return (
         <main className="main">
-            <h1 className="main__title"> My Lists </h1>
+            <h1 className="main__title"> Мои Списки </h1>
             <NewListInput 
             setAllLists={setAllLists}
             allLists={allLists}
             />
             {allLists.map(
-                ({ title, items, active, id }) => 
+                ({ title, items, active, id, inputShown }) => 
                 <List
                 title={title}
                 items={items}
                 allLists={allLists}
                 setAllLists={setAllLists}
                 active={active}
+                inputShown={inputShown}
                 id={id}
             />)}
 
