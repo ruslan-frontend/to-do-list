@@ -11,7 +11,8 @@ function NewListInput( { allLists, setAllLists } ) {
         <form onSubmit={(e) => {
             e.preventDefault();
             setAllLists([{id: uuidv4(), title: newList, items: [], active: false, inputShown: false}, ...allLists])
-
+            setNewList('');
+            setIsButtonActive(false);
         }} 
         className="newList">
 
