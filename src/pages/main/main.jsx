@@ -1,12 +1,18 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import List from '../../components/List/list';
 import NewListInput from '../../components/newListInput/newListInput';
 import './main.scss';
 
+const LOCALSTORAGEKEY = 'lists';
+const storageLists = JSON.parse(localStorage.getItem(LOCALSTORAGEKEY) || "[]");
+
 function Main() {
 
+    const [allLists, setAllLists] = useState(storageLists);
 
-    const [allLists, setAllLists] = useState([]);
+    useEffect(() => {
+        localStorage.setItem(LOCALSTORAGEKEY, JSON.stringify(allLists))
+    }, [allLists])
 
     return (
         <main className="main">
@@ -25,6 +31,7 @@ function Main() {
                 active={active}
                 inputShown={inputShown}
                 id={id}
+                key={id}
             />)}
 
         </main>
