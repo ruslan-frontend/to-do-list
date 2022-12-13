@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Item from '../item/item';
+import Item from '../Item/Item';
 import './list.scss';
 import { v4 as uuidv4 } from 'uuid';
 
