@@ -1,4 +1,4 @@
-import './Item.scss';
+import './item.scss';
 
 function Item( { item, setAllLists, listId, allLists } ) {
 

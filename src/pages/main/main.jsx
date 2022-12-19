@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import List from '../../components/List/list';
+import Modal from '../../components/Modal/modal';
 import NewListInput from '../../components/newListInput/newListInput';
 import './main.scss';
 
@@ -7,12 +8,23 @@ const LOCALSTORAGEKEY = 'lists';
 const storageLists = JSON.parse(localStorage.getItem(LOCALSTORAGEKEY) || "[]");
 
 function Main() {
-
+    
+    const [isModalVisiable, setIsModalVisiable] = useState(null);
     const [allLists, setAllLists] = useState(storageLists);
+
+    const deleteCheckedItems = () => {
+        const newAllLists = allLists.map((list) => {
+            if (isModalVisiable === list.id) {
+                list.items = list.items.filter((item) => !item.checked);
+            }
+            return list;
+        });
+        setAllLists(newAllLists);
+    };
 
     useEffect(() => {
         localStorage.setItem(LOCALSTORAGEKEY, JSON.stringify(allLists))
-    }, [allLists])
+    }, [allLists]);
 
     return (
         <main className="main">
@@ -32,7 +44,12 @@ function Main() {
                 inputShown={inputShown}
                 id={id}
                 key={id}
-            />)}
+                setIsModalVisiable={setIsModalVisiable}
+                />)}
+            {isModalVisiable && <Modal
+            setIsModalVisiable={setIsModalVisiable}
+            deleteCheckedItems={deleteCheckedItems}
+            />}
 
         </main>
     );

@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import Item from '../Item/Item';
+import Item from '../Item/item';
 import './list.scss';
 import { v4 as uuidv4 } from 'uuid';
 
-function List({ title, items, setAllLists, allLists, active, id, inputShown  }) {
+function List({ title, items, setAllLists, allLists, active, id, inputShown, setIsModalVisiable  }) {
 
 	const [isCheckActive, setIsCheckActive] = useState(false);
 	const [newItem, setNewItem] = useState('');
@@ -20,6 +20,10 @@ function List({ title, items, setAllLists, allLists, active, id, inputShown  }) 
             >
                 <h2 className="list__title">{title}</h2>
                 <span  className="list__itemsCount">{items.length}</span>
+                {items.some((item) => item.checked) && <span onClick={(e)=>{
+                    e.stopPropagation();
+                    setIsModalVisiable(id)
+                }} className='list__cleanBtn'>Clean</span>}
             </div>
 
             {active && (
