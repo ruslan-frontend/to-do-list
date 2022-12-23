@@ -3,7 +3,7 @@ import Item from '../Item/item';
 import './list.scss';
 import { v4 as uuidv4 } from 'uuid';
 
-function List({ title, items, setAllLists, allLists, active, id, inputShown, setIsModalVisiable  }) {
+function List({ title, items, setAllLists, allLists, active, id, inputShown, setIsModalVisiable, deleteList  }) {
 
 	const [isCheckActive, setIsCheckActive] = useState(false);
 	const [newItem, setNewItem] = useState('');
@@ -20,10 +20,17 @@ function List({ title, items, setAllLists, allLists, active, id, inputShown, set
             >
                 <h2 className="list__title">{title}</h2>
                 <span  className="list__itemsCount">{items.length}</span>
-                {items.some((item) => item.checked) && <span onClick={(e)=>{
+                {items.some((item) => item.checked) && <span 
+                onClick={(e)=>{
                     e.stopPropagation();
                     setIsModalVisiable(id)
-                }} className='list__cleanBtn'>Clean</span>}
+                }} className={`list__cleanBtn ${active ? "list__cleanBtn_active" : ""}`}>Clean</span>}
+                
+                {items.length === 0 && <img className='list__deleteImg' 
+                onClick={(e)=>{
+                    e.stopPropagation();
+                    deleteList()
+                }} src="./images/bin.svg" alt="корзина" />}
             </div>
 
             {active && (

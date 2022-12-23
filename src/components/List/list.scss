@@ -9,6 +9,7 @@
     gap: 15px;
     position: relative;
     z-index: 1000;
+    line-height: 20px;
 
     &_active {
         background: #FF6A55;
@@ -35,8 +36,21 @@
         font-weight: 600;
         font-size: 16px;
         line-height: 20px;
-        color: #FFFFFF;
+        color: rgba(0, 0, 0, 0.2);
         margin-left: auto;
+        cursor: pointer;
+
+        &_active {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 20px;
+            color: #FFFFFF;
+            margin-left: auto;
+            cursor: pointer;
+        }
+    }
+
+    &__deleteImg {
         cursor: pointer;
     }
 

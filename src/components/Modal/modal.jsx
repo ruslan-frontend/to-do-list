@@ -1,15 +1,15 @@
 import './modal.scss';
 
-function Modal({ setIsModalVisiable, deleteCheckedItems }) {
+function Modal({ setIsModalVisiable, deleteCheckedItems, title }) {
     
     return (
         <div className="modal" onClick={() => {
             setIsModalVisiable(null);
         }}>
             <div className="modal__window">
-                <h2 className="modal__title">Вы хотите удалить все выполненные задания из списка?</h2>
-                <input type="checkbox" name="" id="modal" />
-                <label for="modal">Не спрашивать меня снова</label>
+                <h2 className="modal__title">Вы хотите удалить все выполненные задания из списка {title}?</h2>
+                <input className='modal__checkbox' type="checkbox" name="" id="modal" />
+                <label className='modal__checkboxTitle' for="modal">Не спрашивать меня снова</label>
                 <div className="modal__buttons">
                     <button onClick={() => {
                                 setIsModalVisiable(null);
