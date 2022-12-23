@@ -22,18 +22,6 @@ function Main() {
         setAllLists(newAllLists);
     };
 
-console.log(allLists);
-
-    const deleteList = () => {
-        const AnotherAllLists = allLists.map((list) => {
-            if (list.items.lenght === 0) {
-                list.items = list.items.filter((items) => items.lenght !== 0);
-            }
-            return list;
-        });
-        setAllLists(AnotherAllLists);
-    };
-
     useEffect(() => {
         localStorage.setItem(LOCALSTORAGEKEY, JSON.stringify(allLists))
     }, [allLists]);
@@ -57,7 +45,6 @@ console.log(allLists);
                 id={id}
                 key={id}
                 setIsModalVisiable={setIsModalVisiable}
-                deleteList={deleteList}
                 />)}
             {isModalVisiable && <Modal
             setIsModalVisiable={setIsModalVisiable}

@@ -3,10 +3,20 @@ import Item from '../Item/item';
 import './list.scss';
 import { v4 as uuidv4 } from 'uuid';
 
-function List({ title, items, setAllLists, allLists, active, id, inputShown, setIsModalVisiable, deleteList  }) {
+function List({ title, items, setAllLists, allLists, active, id, inputShown, setIsModalVisiable  }) {
 
 	const [isCheckActive, setIsCheckActive] = useState(false);
 	const [newItem, setNewItem] = useState('');
+
+    const deleteList = () => {
+        const AnotherAllLists = allLists.map((list) => {
+            if (list.items.length === 0) {
+                allLists.filter((list) => list.items.length && list.id !== id);
+            }
+            return list;
+        });
+        setAllLists(AnotherAllLists);
+    };
 
 	return (
         <div>
