@@ -8,16 +8,6 @@ function List({ title, items, setAllLists, allLists, active, id, inputShown, set
 	const [isCheckActive, setIsCheckActive] = useState(false);
 	const [newItem, setNewItem] = useState('');
 
-    const deleteList = () => {
-        const AnotherAllLists = allLists.map((list) => {
-            if (list.items.length === 0) {
-                allLists.filter((list) => list.items.length && list.id !== id);
-            }
-            return list;
-        });
-        setAllLists(AnotherAllLists);
-    };
-
 	return (
         <div>
             <div
@@ -39,7 +29,7 @@ function List({ title, items, setAllLists, allLists, active, id, inputShown, set
                 {items.length === 0 && <img className='list__deleteImg' 
                 onClick={(e)=>{
                     e.stopPropagation();
-                    deleteList()
+                    setAllLists(allLists.filter((list) => list.id !== id));
                 }} src="./images/bin.svg" alt="корзина" />}
             </div>
 

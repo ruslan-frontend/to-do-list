@@ -12,6 +12,8 @@ function Main() {
     const [isModalVisiable, setIsModalVisiable] = useState(null);
     const [allLists, setAllLists] = useState(storageLists);
 
+    const listTitle = allLists.find((list) => isModalVisiable === list.id)?.title;
+
     const deleteCheckedItems = () => {
         const newAllLists = allLists.map((list) => {
             if (isModalVisiable === list.id) {
@@ -20,6 +22,7 @@ function Main() {
             return list;
         });
         setAllLists(newAllLists);
+        setIsModalVisiable(null);
     };
 
     useEffect(() => {
@@ -49,7 +52,7 @@ function Main() {
             {isModalVisiable && <Modal
             setIsModalVisiable={setIsModalVisiable}
             deleteCheckedItems={deleteCheckedItems}
-            
+            title={listTitle}
             />}
 
         </main>
