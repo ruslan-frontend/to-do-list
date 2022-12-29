@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/ignite/static/css/main.84768e1c.css",
+    "main.js": "/ignite/static/js/main.7bd90dc5.js",
+    "static/js/787.34d05ddd.chunk.js": "/ignite/static/js/787.34d05ddd.chunk.js",
+    "index.html": "/ignite/index.html",
+    "main.84768e1c.css.map": "/ignite/static/css/main.84768e1c.css.map",
+    "main.7bd90dc5.js.map": "/ignite/static/js/main.7bd90dc5.js.map",
+    "787.34d05ddd.chunk.js.map": "/ignite/static/js/787.34d05ddd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.84768e1c.css",
+    "static/js/main.7bd90dc5.js"
+  ]
+}
